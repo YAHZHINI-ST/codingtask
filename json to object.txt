@@ -1,0 +1,44 @@
+package github;
+import com.google.gson.Gson; 
+public class JsonToObject { 
+	public static void main(String[] args) 
+	{ 
+		// Creating object of Converted 
+		Converted con = new Converted(); 
+
+		// Converting json to object 
+		con = getCreated(); 
+
+		// Displaying object 
+		System.out.println(con); 
+	} 
+
+	private static Converted getcCreated() 
+	{ 
+		// Storing preprocessed json(Added slashes) 
+		String ConvertedJson 
+			= "{\"about\" 
+			: \"Grootan\", 
+			\"created\" 
+			: \"1173923446\", 
+			\"id\" 
+			: \"grootan_123\"
+			\"likes\" 
+			: \"4229\", 
+			\"submitted\" 
+			: \"[123.00, 1.00]\"}"; 
+
+		// Creating a Gson Object 
+		Gson gson = new Gson(); 
+
+		// Converting json to object 
+		// first parameter should be prpreocessed json 
+		// and second should be mapping class 
+		Converted converted 
+			= gson.fromJson(ConvertedJson, 
+							Converted.class); 
+
+		// return object 
+		return converted; 
+	} 
+} 
